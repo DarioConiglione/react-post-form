@@ -35,8 +35,27 @@ function App() {
             className="form-control"
             value={formArticle.author}
             onChange={(e) => setFormArticle({ ...formArticle, author: e.target.value })}
-
           />
+
+          <label className="form-label">Titolo</label>
+          <input
+            type="text"
+            name="title"
+            className="form-control"
+            value={formArticle.author}
+            onChange={(e) => setFormArticle({ ...formArticle, title: e.target.value })}
+          />
+
+          <label className="form-label">Descrizione</label>
+          <textarea
+            type="text"
+            name="body"
+            rows="20"
+            className="form-control"
+            value={formArticle.author}
+            onChange={(e) => setFormArticle({ ...formArticle, body: e.target.value })}
+          />
+
         </form>
 
       </div>
