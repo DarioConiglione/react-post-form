@@ -6,20 +6,37 @@ function App() {
   const api_post = 'https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts'
 
   // Create a state with objet 
-  const [formArticle, setFormArticle] = useState(
-    {
-      author: '',
-      title: '',
-      body: '',
-      public: false
-    }
-  )
+  const [formArticle, setFormArticle] = useState(emptyForm)
+
+  const emptyForm = {
+    author: '',
+    title: '',
+    body: '',
+    public: false
+  }
 
   // create a function to handle submit
   function handleSubmit(e) {
     e.preventDefault();
     console.log(formArticle);
   }
+
+  // call axios post
+  axios.post(api_post, formArticle, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(response => {
+      console.log(response);
+      if (response.status === 201) {
+        setFormArticle(emptyForm)
+      }
+    })
+    .catch(err => {
+      console.log(err.message);
+    })
+
 
 
   return (
