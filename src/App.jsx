@@ -15,23 +15,29 @@ function App() {
     }
   )
 
+  // create a function to handle submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(formArticle);
+  }
+
 
   return (
     <>
 
       {/* creazione primo campo del form */}
-      <div class="mb-3">
-        <label for="" className="form-label">Autore</label>
-        <input
-          type="text"
-          name="author"
-          className="form-control"
-          value={formArticle.author}
-          onChange={(e) => setFormArticle({ ...formArticle, author: e.target.value })}
+      <div className="mb-3">
+        <form onSubmit={handleSubmit}>
+          <label className="form-label">Autore</label>
+          <input
+            type="text"
+            name="author"
+            className="form-control"
+            value={formArticle.author}
+            onChange={(e) => setFormArticle({ ...formArticle, author: e.target.value })}
 
-
-
-        />
+          />
+        </form>
 
       </div>
 
