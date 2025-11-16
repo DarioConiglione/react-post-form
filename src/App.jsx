@@ -19,18 +19,22 @@ function App() {
   return (
     <>
 
+      {/* creazione primo campo del form */}
       <div class="mb-3">
-        <label for="" class="form-label">Name</label>
+        <label for="" className="form-label">Autore</label>
         <input
           type="text"
-          name=""
-          id=""
-          class="form-control"
-          placeholder=""
-          aria-describedby="helpId"
+          name="author"
+          className="form-control"
+          value={formArticle.author}
+          onChange={(e) => setFormArticle({ ...formArticle, author: e.target.value })}
+
+
+
         />
-        <small id="helpId" class="text-muted">Help text</small>
+
       </div>
+
 
 
     </>
