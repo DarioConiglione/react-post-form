@@ -26,35 +26,54 @@ function App() {
     <>
 
       {/* creazione primo campo del form */}
-      <div className="mb-3">
-        <form onSubmit={handleSubmit}>
-          <label className="form-label">Autore</label>
-          <input
-            type="text"
-            name="author"
-            className="form-control"
-            value={formArticle.author}
-            onChange={(e) => setFormArticle({ ...formArticle, author: e.target.value })}
-          />
 
-          <label className="form-label">Titolo</label>
-          <input
-            type="text"
-            name="title"
-            className="form-control"
-            value={formArticle.author}
-            onChange={(e) => setFormArticle({ ...formArticle, title: e.target.value })}
-          />
+      <div className="container">
+        <form className="m-5" onSubmit={handleSubmit}>
 
-          <label className="form-label">Descrizione</label>
-          <textarea
-            type="text"
-            name="body"
-            rows="20"
-            className="form-control"
-            value={formArticle.author}
-            onChange={(e) => setFormArticle({ ...formArticle, body: e.target.value })}
-          />
+          <div>
+            <label className="form-label">Autore</label>
+            <input
+              type="text"
+              name="author"
+              className="form-control"
+              value={formArticle.author}
+              onChange={(e) => setFormArticle({ ...formArticle, author: e.target.value })}
+            />
+          </div>
+          <div>
+            <label className="form-label">Titolo</label>
+            <input
+              type="text"
+              name="title"
+              className="form-control"
+              value={formArticle.title}
+              onChange={(e) => setFormArticle({ ...formArticle, title: e.target.value })}
+            />
+          </div>
+          <div>
+            <label className="form-label">Descrizione</label>
+            <textarea
+              type="text"
+              name="body"
+              rows="10"
+              className="form-control"
+              value={formArticle.body}
+              onChange={(e) => setFormArticle({ ...formArticle, body: e.target.value })}
+            />
+          </div>
+          <div>
+            <label className="form-check-label me-2" htmlFor="updates">Vuoi renderlo pubblico?</label>
+            <input
+              type="checkbox"
+              name="public"
+              id="public"
+              className="form-check-input"
+              onChange={(e) => setFormArticle({ ...formArticle, public: e.target.value })}
+            />
+
+          </div>
+
+          <button type="submit" className="btn btn-primary m-3">Invia richiesta</button>
 
         </form>
 
