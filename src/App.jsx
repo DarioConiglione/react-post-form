@@ -20,24 +20,23 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(formArticle);
-  }
 
-  // call axios post
-  axios.post(api_post, formArticle, {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-    .then(response => {
-      console.log(response);
-      if (response.status === 201) {
-        setFormArticle(emptyForm)
+    axios.post(api_post, formArticle, {
+      headers: {
+        'Content-Type': 'application/json'
       }
     })
-    .catch(err => {
-      console.log(err.message);
-    })
+      .then(response => {
+        console.log(response);
+        if (response.status === 201) {
+          setFormArticle(emptyForm)
+        }
+      })
+      .catch(err => {
+        console.log(err.message);
+      })
 
+  }
 
 
   return (
@@ -79,15 +78,16 @@ function App() {
               onChange={(e) => setFormArticle({ ...formArticle, body: e.target.value })}
             />
           </div>
-          <div>
-            <label className="form-check-label me-2" htmlFor="updates">Vuoi renderlo pubblico?</label>
+          <div className='form-check mt-3'>
             <input
               type="checkbox"
               name="public"
               id="public"
               className="form-check-input"
-              onChange={(e) => setFormArticle({ ...formArticle, public: e.target.value })}
+              checked={formArticle.public}
+              onChange={(e) => setFormArticle({ ...formArticle, public: e.target.checked })}
             />
+            <label className="form-check-label me-2" htmlFor="public">Vuoi renderlo pubblico?</label>
 
           </div>
 
