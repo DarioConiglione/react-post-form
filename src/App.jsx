@@ -1,12 +1,10 @@
 import { useState } from 'react'
+import axios from 'axios'
 import './App.css'
 
 function App() {
 
   const api_post = 'https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts'
-
-  // Create a state with objet 
-  const [formArticle, setFormArticle] = useState(emptyForm)
 
   const emptyForm = {
     author: '',
@@ -14,6 +12,9 @@ function App() {
     body: '',
     public: false
   }
+  // Create a state with objet 
+  const [formArticle, setFormArticle] = useState(emptyForm)
+
 
   // create a function to handle submit
   function handleSubmit(e) {
